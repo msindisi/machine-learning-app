@@ -73,7 +73,7 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
     table_html = get_html_table(image_paths, class_predictions, column_labels)
 
     content = head_html + """
-    <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Arial">Here's Our Predictions!</h1></marquee>
+    <h1 style="color:red;font-family:Arial">Here's Our Predictions!</h1>
     """ + str(table_html) + '''<br><form method="post" action="/">
     <button type="submit">Home</button>
     </form>'''
@@ -84,7 +84,7 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
 @app.get("/", response_class=HTMLResponse)
 async def main():
     content = head_html + """
-    <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Arial">Please Upload Your Scenes!</h1></marquee>
+    <h1 style="color:red;font-family:Arial">Please Upload Your Scenes!</h1>
     <h3 style="font-family:Arial">We'll Try to Predict Which of These Categories They Are:</h3><br>
     """
 
